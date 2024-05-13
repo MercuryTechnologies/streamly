@@ -1,4 +1,5 @@
 {-# LANGUAGE DataKinds #-}
+{-# LANGUAGE StandaloneDeriving #-}
 {-# LANGUAGE TypeFamilies #-}
 -- Must come after TypeFamilies, otherwise it is re-enabled.
 -- MonoLocalBinds enabled by TypeFamilies causes perf regressions in general.
@@ -72,6 +73,13 @@ import Streamly.Internal.Data.MutByteArray.Type (MutByteArray(..))
 #ifdef DEBUG
 import Streamly.Internal.Data.MutByteArray.Type (sizeOfMutableByteArray)
 #endif
+
+-- Orphan
+#if MIN_VERSION_base(4,20,0)
+import GHC.RTS.Flags (IoSubSystem)
+deriving instance Enum IoSubSystem
+#endif
+
 
 --------------------------------------------------------------------------------
 -- The Unbox type class
