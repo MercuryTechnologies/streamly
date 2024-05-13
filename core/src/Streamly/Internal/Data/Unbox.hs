@@ -75,7 +75,7 @@ import Streamly.Internal.Data.MutByteArray.Type (sizeOfMutableByteArray)
 #endif
 
 -- Orphan
-#if MIN_VERSION_base(4,20,0)
+#if MIN_VERSION_GLASGOW_HASKELL(9,11,0,0)
 import GHC.RTS.Flags (IoSubSystem)
 deriving instance Enum IoSubSystem
 #endif
